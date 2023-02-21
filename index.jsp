@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>JBoss EAP Test Page!!WAS1</h2>
+<h2>JBoss EAP Test Page! made by Lee Gunwoo</h2>
 </body>
 </html>
