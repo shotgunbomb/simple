@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>rock</groupId>
+  <artifactId>simple</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>simple Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>5.1.21</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>simple</finalName>
+    
+         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                    <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+                </configuration>
+            </plugin>
+             
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tomcat-maven-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <url>http://127.0.0.1:8080/manager/html</url>
+                    <path>/simple</path>
+                    <username>admin</username>
+                    <password>1111</password>
+                </configuration>
+            </plugin>
+            
+             <plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>jboss-maven-plugin</artifactId>
+		        <version>1.5.0</version>
+		        <configuration>
+				  <hostName>localhost</hostName>
+				  <userId>admin</userId> 
+				  <password>admin</password> 
+				  <port>8080</port>
+		          <jbossHome>C:\server\jboss-eap-5.1.2\jboss-as</jbossHome>
+		          <serverName>default</serverName>
+                  <serverId>default</serverId>  
+		          <fileName>target/simple.war</fileName>
+		        </configuration>
+		      </plugin> 
+                
+        </plugins>
+        
+  </build>
+</project>
